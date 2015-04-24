@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>task0002</title>
+    <style type="text/css">
+    input{background-color: red;}
+    .test{background-color: blue}
+    </style>
+</head>
+
+<body>
+	<div id="div1">
+	<input id="number1" type="text">
+    <input id="number2" type="text">
+    <span id="result"></span>
+    <button id="addbtn">BBB</button>
+    </div>
+    <script>
+    function $(id) {
+    return document.getElementById(id);
+    }
+
+    function add(num1, num2) {
+    return num1 + num2;
+    }
+
+    function renderResult(result) {
+    $("result").innerHTML = result;
+    }
+ 
+    function addEventHandle() {
+    var num1 = parseInt($("number1").value);
+    var num2 = parseInt($("number2").value);
+    var result = add(num1, num2);
+    renderResult(result);
+    }
+
+    function add2() {
+        var a = setInterval(function(){
+            $("number1").value = (parseInt($("number1").value) || 0)+ 1;
+            if($("number1").value >= 6){
+            clearInterval(a);
+        }
+        },1000);
+        
+    }
+
+    function initEvent() {
+    $("addbtn").addEventListener("click", add2, false);
+    }
+
+    function addClass(element, newClassName) {
+    element.className = newClassName;
+    }
+
+    initEvent();
+    var a = $("number1");
+    addClass(a, 'test')
+    </script>
+</body>
+</html>
